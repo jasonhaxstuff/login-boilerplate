@@ -57,8 +57,8 @@ declare module 'passport' {
       use (name: string, strategy: Strategy): this
       unuse (name: string): this
       framework<X, Y, Z> (fw: Framework<X, Y, Z>): Authenticator<X, Y, Z>
-      initialize (options?: { userProperty: string; }): InitializeRet
-      session (options?: { pauseStream: boolean; }): AuthenticateRet
+      initialize (options?: { userProperty: string }): InitializeRet
+      session (options?: { pauseStream: boolean }): AuthenticateRet
 
       authenticate (strategy: string | string[], callback?: (...args: any[]) => any): AuthenticateRet
       authenticate (strategy: string | string[], options: AuthenticateOptions, callback?: (...args: any[]) => any): AuthenticateRet
@@ -81,51 +81,51 @@ declare module 'passport' {
     }
 
     interface StrategyCreatedStatic {
-        /**
-         * Authenticate `user`, with optional `info`.
-         *
-         * Strategies should call this function to successfully authenticate a
-         * user.  `user` should be an object supplied by the application after it
-         * has been given an opportunity to verify credentials.  `info` is an
-         * optional argument containing additional user information.  This is
-         * useful for third-party authentication strategies to pass profile
-         * details.
-         */
+      /**
+       * Authenticate `user`, with optional `info`.
+       *
+       * Strategies should call this function to successfully authenticate a
+       * user.  `user` should be an object supplied by the application after it
+       * has been given an opportunity to verify credentials.  `info` is an
+       * optional argument containing additional user information.  This is
+       * useful for third-party authentication strategies to pass profile
+       * details.
+       */
       success (user: object, info?: object): void
-        /**
-         * Fail authentication, with optional `challenge` and `status`, defaulting
-         * to 401.
-         *
-         * Strategies should call this function to fail an authentication attempt.
-         */
+      /**
+       * Fail authentication, with optional `challenge` and `status`, defaulting
+       * to 401.
+       *
+       * Strategies should call this function to fail an authentication attempt.
+       */
       fail (challenge?: string | number, status?: number): void
-        /**
-         * Redirect to `url` with optional `status`, defaulting to 302.
-         *
-         * Strategies should call this function to redirect the user (via their
-         * user agent) to a third-party website for authentication.
-         */
+      /**
+       * Redirect to `url` with optional `status`, defaulting to 302.
+       *
+       * Strategies should call this function to redirect the user (via their
+       * user agent) to a third-party website for authentication.
+       */
       redirect (url: string, status?: number): void
-        /**
-         * Pass without making a success or fail decision.
-         *
-         * Under most circumstances, Strategies should not need to call this
-         * function.  It exists primarily to allow previous authentication state
-         * to be restored, for example from an HTTP session.
-         */
+      /**
+       * Pass without making a success or fail decision.
+       *
+       * Under most circumstances, Strategies should not need to call this
+       * function.  It exists primarily to allow previous authentication state
+       * to be restored, for example from an HTTP session.
+       */
       pass (): void
-        /**
-         * Internal error while performing authentication.
-         *
-         * Strategies should call this function when an internal error occurs
-         * during the process of performing authentication; for example, if the
-         * user directory is not available.
-         */
+      /**
+       * Internal error while performing authentication.
+       *
+       * Strategies should call this function when an internal error occurs
+       * during the process of performing authentication; for example, if the
+       * user directory is not available.
+       */
       error (err: any): void
     }
 
     type StrategyCreated<T, O = T & StrategyCreatedStatic> = {
-        [P in keyof O]: O[P];
+      [P in keyof O]: O[P]
     }
 
     interface Profile {
@@ -134,16 +134,16 @@ declare module 'passport' {
       displayName: string
       username?: string
       name?: {
-        familyName: string;
-        givenName: string;
-        middleName?: string;
+        familyName: string
+        givenName: string
+        middleName?: string
       }
       emails?: Array<{
-        value: string;
-        type?: string;
+        value: string
+        type?: string
       }>
       photos?: Array<{
-        value: string;
+        value: string
       }>
     }
 

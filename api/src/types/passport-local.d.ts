@@ -30,28 +30,28 @@ declare module 'passport-local' {
 
   interface VerifyFunctionWithRequest {
     (
-          req: express.Request,
-          username: string,
-          password: string,
-          done: (error: any, user?: any, options?: IVerifyOptions) => void
-      ): void
+      req: express.Request,
+      username: string,
+      password: string,
+      done: (error: any, user?: any, options?: IVerifyOptions) => void
+    ): void
   }
 
   interface VerifyFunction {
     (
-          username: string,
-          password: string,
-          done: (error: any, user?: any, options?: IVerifyOptions) => void
-      ): void
+      username: string,
+      password: string,
+      done: (error: any, user?: any, options?: IVerifyOptions) => void
+    ): void
   }
 
   class Strategy extends PassportStrategy {
     constructor (
-          options: IStrategyOptionsWithRequest,
-          verify: VerifyFunctionWithRequest
-      );
-    constructor (options: IStrategyOptions, verify: VerifyFunction);
-    constructor (verify: VerifyFunction);
+      options: IStrategyOptionsWithRequest,
+      verify: VerifyFunctionWithRequest
+    )
+    constructor (options: IStrategyOptions, verify: VerifyFunction)
+    constructor (verify: VerifyFunction)
 
     name: string
   }
