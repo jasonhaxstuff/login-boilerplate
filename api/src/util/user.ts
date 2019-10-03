@@ -60,6 +60,10 @@ export async function checkAndEncryptPassword (user: User) {
     console.warn(`Took ${spent}ms to hash a password, consider raising the 'hashingIterations' option in config.json`)
   }
 
+  if (spent > 2000) {
+    console.warn(`Took ${spent}ms to hash a password, consider lowering the 'hashingIterations' option in config.json`)
+  }
+
   if (!newPassword) {
     return false
   }
