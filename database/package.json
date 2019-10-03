@@ -1,0 +1,22 @@
+{
+  "name": "@login/database",
+  "version": "0.0.1",
+  "description": "The database entities for the login boilerplate.",
+  "main": "dist/index.js",
+  "author": "jasonhaxstuff <shadowmanguyyt@gmail.com>",
+  "license": "Unlicense",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "class-validator": "^0.10.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.0-alpha.24"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.5",
+    "tslint": "^5.20.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.6.3"
+  }
+}

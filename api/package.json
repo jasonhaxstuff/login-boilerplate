@@ -1,0 +1,46 @@
+{
+  "name": "@login/api",
+  "version": "0.0.1",
+  "description": "The API for the login boilerplate.",
+  "main": "dist/index.js",
+  "author": "jasonhaxstuff <shadowmanguyyt@gmail.com>",
+  "license": "Unlicense",
+  "scripts": {
+    "start": "npm run serve",
+    "build": "tsc",
+    "serve": "node dist",
+    "watch-ts": "tsc -w"
+  },
+  "dependencies": {
+    "@types/uuid": "^3.4.5",
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.19.0",
+    "connect-pg-simple": "^6.0.1",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.0.0",
+    "express-session": "^1.16.2",
+    "express-validator": "^6.2.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.12.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.19",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt-nodejs": "^0.0.30",
+    "@types/body-parser": "^1.17.1",
+    "@types/connect-pg-simple": "^4.2.0",
+    "@types/express": "^4.17.1",
+    "@types/express-rate-limit": "^3.3.2",
+    "@types/express-session": "^1.15.14",
+    "@types/jquery": "^3.3.31",
+    "@types/shelljs": "^0.8.5",
+    "node-sass": "^4.12.0",
+    "shelljs": "^0.8.3",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.6.3"
+  }
+}

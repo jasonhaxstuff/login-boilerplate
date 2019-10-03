@@ -1,0 +1,15 @@
+{
+  "name": "login",
+  "version": "0.0.1",
+  "description": "A login boilerplate.",
+  "author": "jasonhaxstuff <shadowmanguyyt@gmail.com>",
+  "license": "Unlicense",
+  "scripts": {
+    "start": "npm run build && npm run start:nobuild",
+    "start:nobuild": "npm run start:api",
+    "build": "npm run build:database && npm run build:api",
+    "build:database": "npm run --prefix ./database build",
+    "build:api": "npm run --prefix ./api build",
+    "start:api": "npm run --prefix ./api start"
+  }
+}

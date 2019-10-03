@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "alwaysStrict": true,
+    "charset": "utf-8",
+    "noImplicitReturns": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "typeRoots": [ "./src/types" ],
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "strictPropertyInitialization": false
+  },
+  "include": [
+    "src"
+  ],
+  "compileOnSave": true
+}
