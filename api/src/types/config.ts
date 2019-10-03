@@ -1,6 +1,7 @@
 export type Config = {
   secret: string
   port: number,
+  hashingIterations: number,
   postgres: {
     database: string,
     username: string,

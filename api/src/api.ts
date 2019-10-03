@@ -21,10 +21,13 @@ let postgres = {
   port: 5432
 }
 
+export let hashingIterations = 3
+
 try {
   const config: Config = require('../config.json')
-  secret = config.secret
-  port = config.port
+  secret = config.secret || ''
+  port = config.port || 3000
+  hashingIterations = config.hashingIterations || 3
   Object.assign(postgres, config.postgres)
 } catch (err) {
   console.error(err)

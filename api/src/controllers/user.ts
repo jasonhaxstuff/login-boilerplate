@@ -77,7 +77,7 @@ export class UserController {
     const user = new User()
     user.id = uuid()
     user.email = req.body.email
-    user.username = req.body.email
+    user.username = req.body.username !== undefined ? req.body.username : req.body.email
     user.password = req.body.password
 
     const existing = await server.userService.findByEmail(user.email).catch(() => 'err')
@@ -87,7 +87,7 @@ export class UserController {
         return res.status(500).json({ errors: [ 'Failed while attempting to find duplicate users' ] })
       }
 
-      return res.status(402).json({ errors: [ 'An account with that email address already exists' ] })
+      return res.status(409).json({ errors: [ 'An account with that email address already exists' ] })
     }
 
     const created = await server.userService.create(user)

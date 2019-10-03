@@ -1,35 +1,14 @@
-import * as bcrypt from 'bcrypt-nodejs'
+import * as argon2 from 'argon2'
 import { User } from '../../../database/dist'
 import { Request } from 'express-serve-static-core'
+import { hashingIterations } from '../api'
 
 export function comparePassword (password: string, canidate: string): Promise<boolean> {
-  return new Promise((res, rej) => {
-    bcrypt.compare(canidate, password, (err, isMatch) => {
-      if (err) {
-        return rej(err)
-      }
-
-      return res(isMatch)
-    })
-  })
+  return argon2.verify(password, canidate, { timeCost: hashingIterations, type: argon2.argon2id })
 }
 
 export function encrypt (password: string): Promise<string> {
-  return new Promise((res, rej) => {
-    bcrypt.genSalt(10, (err, salt) => {
-      if (err) {
-        rej(err)
-      }
-
-      bcrypt.hash(password, salt, () => { /* none */ }, (err, hash) => {
-        if (err) {
-          rej(err)
-        }
-
-        res(hash)
-      })
-    })
-  })
+  return argon2.hash(password, { timeCost: hashingIterations, type: argon2.argon2id })
 }
 
 export function replacer (key: string, value: any) {
@@ -46,7 +25,17 @@ export async function checkAndEncryptNewPassword (oldUser: User, newUser: User) 
       return false
     }
 
+    const started = new Date().getTime()
     const newPassword = await encrypt(newUser.password).catch(err => console.error(err))
+    const spent = new Date().getTime() - started
+
+    if (spent < 1000) {
+      console.warn(`Took ${spent}ms to hash a password, consider raising the 'hashingIterations' option in config.json`)
+    }
+
+    if (spent > 2000) {
+      console.warn(`Took ${spent}ms to hash a password, consider lowering the 'hashingIterations' option in config.json`)
+    }
 
     if (!newPassword) {
       return false
@@ -63,7 +52,13 @@ export async function checkAndEncryptPassword (user: User) {
     return false
   }
 
+  const started = new Date().getTime()
   const newPassword = await encrypt(user.password).catch(err => console.error(err))
+  const spent = new Date().getTime() - started
+
+  if (spent < 1000) {
+    console.warn(`Took ${spent}ms to hash a password, consider raising the 'hashingIterations' option in config.json`)
+  }
 
   if (!newPassword) {
     return false

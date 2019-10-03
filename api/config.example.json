@@ -1,6 +1,7 @@
 {
   "secret": "",
   "port": 3000,
+  "hashingIterations": 3,
   "postgres": {
     "database": "login",
     "username": "postgres",
