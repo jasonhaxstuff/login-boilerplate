@@ -2,6 +2,11 @@
   "secret": "",
   "port": 3000,
   "hashingIterations": 3,
+  "https": {
+    "useHttps": false,
+    "crt": "./server.crt",
+    "key": "./server.key"
+  },
   "postgres": {
     "database": "login",
     "username": "postgres",

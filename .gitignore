@@ -89,3 +89,5 @@ typings/
 
 dist/
 config.json
+server.key
+server.crt
