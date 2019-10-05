@@ -6,7 +6,7 @@ function main () {
     const email = $('#email')
     const username = $('#username')
     
-    $.getJSON('https://localhost:8000/api/account', data => {
+    $.getJSON(`${API_ENDPOINT}/account`, data => {
         email.val(data.email)
         username.val(data.username)
     })
@@ -57,7 +57,7 @@ function onAccountForm() {
     
     $.ajax({
         type: 'PUT',
-        url: 'https://localhost:8000//apiaccount',
+        url: `${API_ENDPOINT}/account`,
         dataType: 'json',
         contentType: 'application/json',
         async: true,

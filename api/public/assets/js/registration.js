@@ -3,7 +3,7 @@ if (window.location.href.endsWith('/registration.html')) {
 }
 
 function main () {
-    $.getJSON('https://localhost:8000/api/account', data => {
+    $.getJSON(`${API_ENDPOINT}/account`, data => {
         window.location.href = window.location.href.replace('/registration.html', '/account.html')
     })
 }
@@ -16,7 +16,7 @@ function onRegistrationForm() {
     
     $.ajax({
         type: 'POST',
-        url: 'https://localhost:8000/api/account',
+        url: `${API_ENDPOINT}/account`,
         dataType: 'json',
         contentType: 'application/json',
         async: true,

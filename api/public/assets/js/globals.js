@@ -1,4 +1,6 @@
-$.getJSON('https://localhost:8000/api/account', data => {
+var API_ENDPOINT = 'https://localhost:8000/api'
+
+$.getJSON(`${API_ENDPOINT}/account`, data => {
     $('#login').attr('style', 'display:none')
     $('#register').attr('style', 'display:none')
 })
