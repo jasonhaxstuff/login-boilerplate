@@ -1,6 +1,6 @@
 {
   "name": "@login/database",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "The database entities for the login boilerplate.",
   "main": "dist/index.js",
   "author": "jasonhaxstuff <shadowmanguyyt@gmail.com>",
