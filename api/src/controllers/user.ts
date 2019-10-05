@@ -60,7 +60,7 @@ export class UserController {
    */
   public async postAccount (req: Request, res: Response, next: NextFunction) {
     if (req.body.username !== undefined) {
-      await check('username', 'Username must be alphanumeric').isAlphanumeric().escape().run(req)
+      await check('username', 'Username must be alphanumeric and 1-20 characters').isAlphanumeric().isLength({ min: 3, max: 20 }).escape().run(req)
     }
 
     await check('email', 'Email is not valid').isEmail().run(req)
@@ -127,7 +127,7 @@ export class UserController {
     }
 
     if (req.body.username !== undefined) {
-      await check('username', 'Username must be alphanumeric').isAlphanumeric().escape().run(req)
+      await check('username', 'Username must be alphanumeric and 1-20 characters').isAlphanumeric().isLength({ min: 3, max: 20 }).escape().run(req)
     }
 
     await check('password', 'The entered password does not match our records').isLength({ min: 8, max: 160 }).run(req)

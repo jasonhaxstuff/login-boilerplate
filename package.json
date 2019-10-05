@@ -1,15 +1,18 @@
 {
   "name": "login",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A login boilerplate.",
   "author": "jasonhaxstuff <shadowmanguyyt@gmail.com>",
   "license": "Unlicense",
   "scripts": {
-    "start": "npm run build && npm run start:nobuild",
-    "start:nobuild": "npm run start:api",
-    "build": "npm run build:database && npm run build:api",
-    "build:database": "npm run --prefix ./database build",
-    "build:api": "npm run --prefix ./api build",
-    "start:api": "npm run --prefix ./api start"
+    "start": "yarpm run build && yarpm run start:nobuild",
+    "start:nobuild": "yarpm run start:api",
+    "start:api": "cd api && yarpm run start && cd ..",
+    "build": "yarpm run build:database && yarpm run build:api",
+    "build:database": "cd database && yarpm run build && cd ..",
+    "build:api": "cd api && yarpm run build && cd .."
+  },
+  "devDependencies": {
+    "yarpm": "^0.2.1"
   }
 }

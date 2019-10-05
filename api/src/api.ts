@@ -115,13 +115,21 @@ export class Api {
       res.locals.user = req.user
       next()
     })
+    app.use((_, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', '*')
+      res.setHeader('Access-Control-Allow-Headers', '*')
+      next()
+    })
+    app.use(
+      express.static(joinPaths(process.cwd(), 'public'), { maxAge: 31557600000 }) // 1 year
+    )
 
     // Routes
-    app.post('/login', this.userController.postLogin)
-    app.get('/logout', isAuthenticated, this.userController.getLogout)
-    app.post('/account', this.userController.postAccount)
-    app.get('/account', isAuthenticated, this.userController.getAccount)
-    app.put('/account', isAuthenticated, this.userController.putAccount)
+    app.post('/api/login', this.userController.postLogin)
+    app.get('/api/logout', isAuthenticated, this.userController.getLogout)
+    app.post('/api/account', this.userController.postAccount)
+    app.get('/api/account', isAuthenticated, this.userController.getAccount)
+    app.put('/api/account', isAuthenticated, this.userController.putAccount)
 
     if (!httpsConf.useHttps) {
       app.listen(port)

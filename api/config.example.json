@@ -1,6 +1,6 @@
 {
   "secret": "",
-  "port": 3000,
+  "port": 443,
   "hashingIterations": 3,
   "https": {
     "useHttps": false,
