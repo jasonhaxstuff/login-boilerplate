@@ -12,7 +12,7 @@ $.getJSON(`${API_ENDPOINT}/account`, data => {
 function logout () {
     $.ajax({
         type: 'GET',
-        url: 'https://localhost:8000/api/logout',
+        url: `${API_ENDPOINT}/logout`,
         async: true,
         success: (data) => {            
             window.location.href = "https://localhost:8000"
