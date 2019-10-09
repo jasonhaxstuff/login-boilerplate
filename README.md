@@ -4,6 +4,7 @@ Start without building with `npm run start:nobuild` or `yarn start:nobuild`
 
 ## Configuration
 You ***will*** want to edit the config file.
+Watch the [tutorial](https://youtu.be/FnM_Z7-a2Mc) or follow these instructions:
 
 1. Rename the example config (located at `api/config.example.json`) to `config.json`.
 
