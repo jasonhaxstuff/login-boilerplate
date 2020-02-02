@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express-serve-static-core'
-import { check, sanitize, validationResult } from 'express-validator'
+import { check, validationResult } from 'express-validator'
 import passport = require('passport')
 import { User } from '../../../database'
 import { IVerifyOptions } from 'passport-local'
@@ -13,9 +13,8 @@ export class UserController {
    * Sign in using email and password.
    */
   public async postLogin (req: Request, res: Response) {
-    await check('email', 'Email is not valid').isEmail().run(req)
+    await check('email', 'Email is not valid').isEmail().normalizeEmail({ gmail_remove_dots: false }).run(req)
     await check('password', 'Password must be between 8 and 160 characters long').isLength({ min: 8, max: 160 }).run(req)
-    await sanitize('email').normalizeEmail({ gmail_remove_dots: false }).run(req)
 
     const errors = validationResult(req)
 
@@ -63,10 +62,9 @@ export class UserController {
       await check('username', 'Username must be alphanumeric and 1-20 characters').isAlphanumeric().isLength({ min: 3, max: 20 }).escape().run(req)
     }
 
-    await check('email', 'Email is not valid').isEmail().run(req)
+    await check('email', 'Email is not valid').isEmail().normalizeEmail({ gmail_remove_dots: false }).run(req)
     await check('password', 'Password must be between 8 and 160 characters long').isLength({ min: 8, max: 160 }).run(req)
     await check('confirmPassword', 'Passwords do not match').equals(req.body.password).run(req)
-    await sanitize('email').normalizeEmail({ gmail_remove_dots: false }).run(req)
 
     const errors = validationResult(req)
 
