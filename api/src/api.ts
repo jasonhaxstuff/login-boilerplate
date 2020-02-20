@@ -100,7 +100,7 @@ export class Api {
     }))
     app.use(passport.initialize())
     app.use(passport.session())
-    app.use(new RateLimit({
+    app.use(RateLimit({
       windowMs: 60 * 1000, // 1 minute
       max: 100,
       skip: (request: express.Request) => {
