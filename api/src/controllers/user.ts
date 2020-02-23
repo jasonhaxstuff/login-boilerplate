@@ -162,7 +162,7 @@ export class UserController {
     const succeeded = await server.userService.update(req.user)
 
     if (!succeeded) {
-      return res.status(500).json({ errors: 'Failed to update user' })
+      return res.status(500).json({ errors: [ 'Failed to update user' ] })
     }
 
     return res.json(JSON.parse(JSON.stringify(req.user, userJsonReplacer)))
