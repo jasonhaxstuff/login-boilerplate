@@ -91,4 +91,5 @@ dist/
 config.json
 server.key
 server.crt
-.ionide
+.ionide/
+.vscode/

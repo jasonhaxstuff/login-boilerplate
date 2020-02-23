@@ -1,0 +1,29 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Crashtest
+      run: |
+        echo Installing deps...
+        npm i
+
+        cd api
+        npm i
+
+        cd ../database
+        npm i
+
+        cd ..
+
+        echo Building...
+        npm run build
+        
+        echo Testing...
+        npm run start:nobuild
