@@ -4,7 +4,7 @@ import passport = require('passport')
 import { User } from '../../../database'
 import { IVerifyOptions } from 'passport-local'
 import { replacer as userJsonReplacer, login, comparePassword } from '../util'
-import uuid = require('uuid/v4')
+import { v4 as uuid } from 'uuid'
 import { server } from '..'
 
 export class UserController {
