@@ -14,7 +14,7 @@
     "typeorm": "^0.3.0-alpha.24"
   },
   "devDependencies": {
-    "@types/node": "12.12.50",
+    "@types/node": "12.12.51",
     "tslint": "6.1.2",
     "tslint-config-standard": "9.0.0",
     "typescript": "3.9.7"
