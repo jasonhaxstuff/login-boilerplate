@@ -44,10 +44,10 @@
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
 
-"@types/connect-pg-simple@4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@types/connect-pg-simple/-/connect-pg-simple-4.2.1.tgz#06a986ed7110b272a11a19f8fd741b4d073057c5"
-  integrity sha512-u2nkiAoEBU/gj9WvnsyZM1mypCN6h+YR9oSKIGBrIUqrXYLiXAVysPIHcR9STkj236oRq3GtcjEJfv8zxauNVw==
+"@types/connect-pg-simple@4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@types/connect-pg-simple/-/connect-pg-simple-4.2.2.tgz#50465f6a992c13a0bc338a012de765379b173a2a"
+  integrity sha512-SjSE46X12sdg3hPpoj4vLKSm/s3O5SkSs+VROqxAv1laOr9tgCH6oM8gy/ysCQ/8Pwkh0VLgqNLfAlHCS/+ftg==
   dependencies:
     "@types/express" "*"
     "@types/express-session" "*"
