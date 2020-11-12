@@ -88,10 +88,10 @@
     "@types/express" "*"
     "@types/node" "*"
 
-"@types/express-session@1.17.1":
-  version "1.17.1"
-  resolved "https://registry.yarnpkg.com/@types/express-session/-/express-session-1.17.1.tgz#5d69dba9f31be7ffe1db8da3da432213688f59ba"
-  integrity sha512-XWiWXO+IOoiAj6rUG1HggCAl+ykY4GKo/Evwil+r9N2jHWq1zbAzKqjlGn5nmh/+Xl21SyF1bHyLrpoj7cjeYw==
+"@types/express-session@1.17.2":
+  version "1.17.2"
+  resolved "https://registry.yarnpkg.com/@types/express-session/-/express-session-1.17.2.tgz#ed6a36dd9f267c7fef86004f653bfb9b5cea3c21"
+  integrity sha512-QRm/fUuvr/BAosL9CvK351SDQP7wpD8+h3S8ZEE/8IvHJ/ZqHrjZbjx/flYfazyPw7yNi9O5fbjFZbh0vZ1ccg==
   dependencies:
     "@types/express" "*"
 
