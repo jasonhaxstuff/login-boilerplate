@@ -13,6 +13,6 @@
     "build:api": "cd api && yarpm run build && cd .."
   },
   "devDependencies": {
-    "yarpm": "0.2.1"
+    "yarpm": "1.1.1"
   }
 }
