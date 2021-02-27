@@ -9,7 +9,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "class-validator": "^0.12.0",
+    "class-validator": "^0.13.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.0-alpha.24"
   },
