@@ -33,7 +33,7 @@
     "@types/express-rate-limit": "5.1.1",
     "@types/express-session": "1.17.3",
     "@types/jquery": "3.5.5",
-    "@types/shelljs": "0.8.8",
+    "@types/shelljs": "0.8.9",
     "@types/uuid": "8.3.0",
     "node-sass": "6.0.0",
     "shelljs": "0.8.4",
